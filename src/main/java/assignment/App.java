@@ -51,9 +51,9 @@ public class App {
         LOGGER.info(res);
         cdclone.cardnumber = newcardnumber;
         LOGGER.info("Card updated successfully.");
-        LOGGER.info("Updated Card number: {}"+cdclone.cardnumber);
-        LOGGER.info("Card holder name : {}"+cd.cardholdername);
-        LOGGER.info("Expiration date : {}"+cd.expidate);
+        LOGGER.info("Updated Card number: {}",cdclone.cardnumber);
+        LOGGER.info("Card holder name : {}",cd.cardholdername);
+        LOGGER.info("Expiration date : {}",cd.expidate);
 
 
     }
