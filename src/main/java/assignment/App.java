@@ -16,13 +16,19 @@ class Crddeatils implements Cloneable{
     }
     boolean checkequals(long newcardnumber)
     {
-
         return cardnumber == newcardnumber;
     }
 
-    public Object clone() throws  CloneNotSupportedException
+    Crddeatils clon()
     {
-        return  super.clone();
+        try
+        {
+        return (Crddeatils) super.clone();
+        }
+        catch(CloneNotSupportedException e)
+        {
+            return null;
+        }
     }
 }
 public class App {
@@ -34,18 +40,17 @@ public class App {
         String expidate;
         long newcardnumber;
 
-        Scanner input=new Scanner(System.in);
+        Scanner sc=new Scanner(System.in);
         LOGGER.info("Enter Card Holder name:");
-        cardholdername=input.nextLine();
+        cardholdername=sc.nextLine();
         LOGGER.info("Enter Card number: ");
-        cardnumber=input.nextLong();
+        cardnumber=sc.nextLong();
         LOGGER.info("Enter Expiration date:");
-        expidate=input.next();
+        expidate=sc.next();
         Crddeatils cd=new Crddeatils(cardholdername, cardnumber, expidate);
-        Crddeatils cdclone=(Crddeatils)cd.clone();
+        Crddeatils cdclone=cd.clon();
         LOGGER.info("Enter New card number: ");
-        newcardnumber=input.nextLong();
-        
+        newcardnumber=sc.nextLong();
         Boolean t=cd.checkequals(newcardnumber);
         String res=String.valueOf(t);
         LOGGER.info(res);
