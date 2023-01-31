@@ -16,19 +16,13 @@ class Crddeatils implements Cloneable{
     }
     boolean checkequals(long newcardnumber)
     {
+
         return cardnumber == newcardnumber;
     }
 
-    Crddeatils clon()
+    public Object clone() throws  CloneNotSupportedException
     {
-        try
-        {
-        return (Crddeatils) super.clone();
-        }
-        catch(CloneNotSupportedException e)
-        {
-            return null;
-        }
+        return  super.clone();
     }
 }
 public class App {
@@ -40,25 +34,26 @@ public class App {
         String expidate;
         long newcardnumber;
 
-        Scanner sc=new Scanner(System.in);
+        Scanner input=new Scanner(System.in);
         LOGGER.info("Enter Card Holder name:");
-        cardholdername=sc.nextLine();
+        cardholdername=input.nextLine();
         LOGGER.info("Enter Card number: ");
-        cardnumber=sc.nextLong();
+        cardnumber=input.nextLong();
         LOGGER.info("Enter Expiration date:");
-        expidate=sc.next();
+        expidate=input.next();
         Crddeatils cd=new Crddeatils(cardholdername, cardnumber, expidate);
-        Crddeatils cdclone=cd.clon();
+        Crddeatils cdclone=(Crddeatils)cd.clone();
         LOGGER.info("Enter New card number: ");
-        newcardnumber=sc.nextLong();
+        newcardnumber=input.nextLong();
+        
         Boolean t=cd.checkequals(newcardnumber);
         String res=String.valueOf(t);
         LOGGER.info(res);
         cdclone.cardnumber = newcardnumber;
         LOGGER.info("Card updated successfully.");
-        LOGGER.info("Card number: {}",cdclone.cardnumber);
-        LOGGER.info("Card holder name : {}",cd.cardholdername);
-        LOGGER.info("Expiration date : {}",cd.expidate);
+        LOGGER.info("Updated Card number: {}"+cdclone.cardnumber);
+        LOGGER.info("Card holder name : {}"+cd.cardholdername);
+        LOGGER.info("Expiration date : {}"+cd.expidate);
 
 
     }
