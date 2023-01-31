@@ -51,9 +51,12 @@ public class App {
         LOGGER.info(res);
         cdclone.cardnumber = newcardnumber;
         LOGGER.info("Card updated successfully.");
-        LOGGER.info("Updated Card number: {}",cdclone.cardnumber);
-        LOGGER.info("Card holder name : {}",cd.cardholdername);
-        LOGGER.info("Expiration date : {}",cd.expidate);
+        String print ="Updated Card number: "+cdclone.cardnumber; 
+        LOGGER.info(print);
+        String print1 ="Card holder name : "+cd.cardholdername;
+        LOGGER.info(print1);
+        String print2 ="Expiration date : "+cd.expidate;
+        LOGGER.info(print2);
 
 
     }
